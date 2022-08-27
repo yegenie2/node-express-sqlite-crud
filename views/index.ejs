@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 페이지</title>
+</head>
+<body>
+    
+    <!-- <h1 style="text-align: center">ㅎㅇㅎㅇ</h1> -->
+    <h1> 댓글 목록 </h1>
+    <ul>
+    <% for (comments of comments) { %>
+        <li><%= comments.content %></li>
+        <form action="/update/<%= comments.id %>" method="post">
+            <input type="text" name="content">
+            <input type="submit" value="Submit">
+        </form>
+        <form action="/delete/<%= comments.id %>" method="post">
+            <input type="submit" value="삭제하기">
+        </form>
+    <% } %>
+    </ul>
+    <hr>
+    <form action="/create" method="post">
+        <input type="text" name="content"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+   
+</body>
+</html>
